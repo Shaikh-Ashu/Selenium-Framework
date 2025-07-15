@@ -1,4 +1,4 @@
-package AshpakShaikh_Automation.PageObject.PageObject;
+package AshpakShaikh_Automation.PageObject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -25,6 +25,10 @@ public class LandingPage extends AbstractComponents{
 	@FindBy(id="userEmail")
 	WebElement userEmail;
 	
+
+	@FindBy(css="[class*='flyInOut']")
+	WebElement errorMessage;
+	
 	//driver.findElement(By.id("userPassword"))
 	
 	@FindBy(id="userPassword")
@@ -34,6 +38,13 @@ public class LandingPage extends AbstractComponents{
 	
 	@FindBy(id="login")
 	WebElement submit;
+	
+	public String getErrorMessage()
+	{
+		waitForWebElementToAppear(errorMessage);
+		return errorMessage.getText();
+	}
+	
 	
 	public CatalogPage loginApplication(String email, String password) 
 	{

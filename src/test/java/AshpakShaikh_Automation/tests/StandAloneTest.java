@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-import AshpakShaikh_Automation.PageObject.PageObject.LandingPage;
+import AshpakShaikh_Automation.PageObject.LandingPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class StandAloneTest {

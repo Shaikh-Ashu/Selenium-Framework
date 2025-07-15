@@ -1,4 +1,4 @@
-package AshpakShaikh_Automation.PageObject.PageObject;
+package AshpakShaikh_Automation.PageObject;
 
 import java.util.List;
 

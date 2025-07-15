@@ -1,4 +1,4 @@
-package AshpakShaikh_Automation.PageObject.PageObject;
+package AshpakShaikh_Automation.PageObject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

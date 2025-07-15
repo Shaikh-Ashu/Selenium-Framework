@@ -10,7 +10,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import AshpakShaikh_Automation.PageObject.PageObject.CartPage;
+import AshpakShaikh_Automation.PageObject.CartPage;
+import AshpakShaikh_Automation.PageObject.OrderPage;
 
 public class AbstractComponents {
 	// Parent Class for all the POM classes
@@ -29,6 +30,9 @@ public class AbstractComponents {
 	@FindBy(css="[routerlink*='cart']")
 	WebElement cartHeader;
 	
+	@FindBy(css="[routerlink='/dashboard/myorders']")
+	WebElement orderHeader;
+	
 	public CartPage goToCartPage()
 	{
 		cartHeader.click();
@@ -37,11 +41,27 @@ public class AbstractComponents {
 		
 	}
 	
+	public OrderPage goToOrderPage()
+	{
+		orderHeader.click();
+		OrderPage orderPage=new  OrderPage(driver);
+		return orderPage;
+		
+	}
+	
 
 	public void waitForElementToAppear(By findBy)
 	{
 	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 	wait.until(ExpectedConditions.visibilityOfElementLocated(findBy));
+
+}
+	
+
+	public void waitForWebElementToAppear(WebElement findBy)
+	{
+	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+	wait.until(ExpectedConditions.visibilityOf(findBy));
 
 }
 	public void waitForElementToDisAppear(WebElement  ele) throws InterruptedException

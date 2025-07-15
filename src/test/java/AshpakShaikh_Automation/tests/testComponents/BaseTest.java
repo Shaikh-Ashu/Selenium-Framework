@@ -1,5 +1,6 @@
 package AshpakShaikh_Automation.tests.testComponents;
 
+import org.testng.annotations.AfterMethod;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
@@ -7,12 +8,15 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
-import AshpakShaikh_Automation.PageObject.PageObject.LandingPage;
+import AshpakShaikh_Automation.PageObject.LandingPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
 	public WebDriver driver;
+	public LandingPage landingPage;
 
 	public WebDriver initializeDriver() throws IOException {
 
@@ -33,13 +37,20 @@ public class BaseTest {
 
 	}
 
+	@BeforeMethod
 	public LandingPage launchApplication() throws IOException
 
 	{
 		driver = initializeDriver();
-		LandingPage landingPage = new LandingPage(driver);
+		landingPage = new LandingPage(driver);
 		landingPage.goTo();
 		return landingPage;
 
+	}
+
+	@AfterMethod
+	
+	public void tearDown() {
+		driver.close();
 	}
 }
